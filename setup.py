@@ -29,7 +29,7 @@ except ValueError:
 
 
 ##########################
-VERSION = "9000.9.9"
+VERSION = "9000.9.10"
 ISRELEASED = False
 __version__ = VERSION
 ##########################
@@ -128,17 +128,17 @@ def format_extensions():
                                      'mdtraj/formats/binpos/'],
                        extra_compile_args=compiler_args)
 
-    dtr = Extension('mdtraj.formats.dtr',
-                    sources=['mdtraj/formats/dtr/src/dtrplugin.cxx',
-                             'mdtraj/formats/dtr/dtr.pyx'],
-                    include_dirs=['mdtraj/formats/dtr/include/',
-                                  'mdtraj/formats/dtr/'],
-                    define_macros=[('DESRES_READ_TIMESTEP2', 1)],
-                    language='c++',
-                    extra_compile_args=compiler_args,
-                    libraries=extra_cpp_libraries)
+    # dtr = Extension('mdtraj.formats.dtr',
+    #                 sources=['mdtraj/formats/dtr/src/dtrplugin.cxx',
+    #                          'mdtraj/formats/dtr/dtr.pyx'],
+    #                 include_dirs=['mdtraj/formats/dtr/include/',
+    #                               'mdtraj/formats/dtr/'],
+    #                 define_macros=[('DESRES_READ_TIMESTEP2', 1)],
+    #                 language='c++',
+    #                 extra_compile_args=compiler_args,
+    #                 libraries=extra_cpp_libraries)
 
-    return [xtc, trr, tng, dcd, binpos, dtr]
+    return [xtc, trr, tng, dcd, binpos]
 
 
 def rmsd_extensions():
